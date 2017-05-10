@@ -62,33 +62,33 @@ export default class Tax extends Component {
     console.log('donations', this.state.donations)
     return (
       <View style={styles.mainContainer}>
-        <View style={{ flex: 1, justifyContent: 'center'}}>
+        <View style={{ flex: 3, justifyContent: 'center'}}>
           <Text style={styles.title}>
             Donation History
           </Text>
         </View>
-        <View style={{flex: 1, justifyContent: 'center'}}>
+        <View style={{flex: 2, justifyContent: 'center'}}>
           <Text style={styles.description}>
-            Description for why we have this page and how it can help with the getting
-            tax returns
+            Use your donations to receive tax benefits! Below you can see amounts, dates and the name of the foundation which you donated to.
           </Text>
         </View>
 
         <View style={styles.labels}>
-        <Text> Amount </Text>
-        <Text> Date </Text>
-        <Text> Name </Text>
+        <Text style={styles.label}> Amount </Text>
+        <Text style={styles.label}> Date </Text>
+        <Text style={styles.label}> Name </Text>
         </View>
 
-        <View style={{flex: 3, backgroundColor: 'red', justifyContent: 'center'}}>
+
+        <View style={{flex: 5, backgroundColor: '#f4ebd9', justifyContent: 'center', }}>
         <ScrollView>
         {
            this.state.donations.length ? this.state.donations.map((donation, i) =>
               {
                 return(<View key={i} style = {styles.taxReceipts}>
 
-                  <Text style={styles.amount}> {currencyFormatter.format(donation.amount, {code:'USD'})} </Text>
-                  <Text style={styles.date}> {moment(donation.date).format("ddd, hA")} </Text>
+                  <Text style={styles.amount}> {currencyFormatter.format(donation.amount/100, {code:'USD'})} </Text>
+                  <Text style={styles.date}> {moment(donation.date).format("MM-DD-YYYY")} </Text>
                   <Text style={styles.foundation}>{donation.foundation} </Text>
 
                        </View>)
@@ -96,6 +96,8 @@ export default class Tax extends Component {
             }) : <Text> You currently have no donation receipts. </Text>
 
         }
+
+
         </ScrollView>
         </View>
       </View>
@@ -108,37 +110,63 @@ var styles = StyleSheet.create ({
     backgroundColor: '#a39a92'
   },
   title: {
-    fontSize: 20,
+    fontSize: 40,
     fontWeight: 'bold',
     alignSelf: 'center',
-    marginTop: 30
+    marginTop: 50,
+    color: '#483d3f'
+
 
   },
   labels: {
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    alignItems: 'center',
+
+    backgroundColor: '#a39a92',
+    borderColor: '#483d3f',
+    borderWidth: 10,
+    height: 40,
+    flex:.5
+
+  },
+  label: {
+    fontSize: 20,
+    fontWeight: 'bold',
+     color: '#483d3f'
+
   },
   description: {
-    textAlign: 'center'
+
+    textAlign: 'center',
+    padding: 4,
+    color: '#483d3f',
+    fontSize: 20
+
+
   },
   taxReceipts: {
-    flex:1,
+
     flexDirection: 'row'
   },
   amount: {
     flex:1,
     paddingTop: 10,
-    paddingLeft: 20
+    paddingLeft: 20,
+    color: '#483d3f'
   },
   date: {
     flex:1,
     paddingTop: 10,
-    paddingLeft: 20
+    paddingLeft: 20,
+    color: '#483d3f'
   },
   foundation: {
     flex:1,
     paddingTop: 10,
-    paddingLeft: 20
+    paddingLeft: 20,
+    textAlign: 'center',
+    color: '#483d3f'
   }
 
 });
