@@ -1,10 +1,127 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>adoereact</title>
-  </head>
-  <body>
-    <div id="root"></div>
-  <script type="text/javascript" src="main.bundle.js"></script></body>
-</html>
+Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module build failed: ReferenceError: [BABEL] C:\Users\alex\Desktop\alexadoe\Ad  oe\node_modules\lodash\lodash.js: Unknown option: C:\Users\alex\Desktop\alexad  oe\Adoe\node_modules\react\react.js.Children. Check out http://babeljs.io/docs  /usage/options/ for more information about options.
+  A common cause of this error is the presence of a configuration options object   without the corresponding preset name. Example:
+  Invalid:
+    `{ presets: [{option: value}] }`
+  Valid:
+    `{ presets: [['presetName', {option: value}]] }`
+  For more detailed information on preset configuration, please see http://babel  js.io/docs/plugins/#pluginpresets-options. (While processing preset: "C:\\User  s\\alex\\Desktop\\alexadoe\\Adoe\\node_modules\\react\\react.js")
+  
+  - logger.js:41 Logger.error
+    [Adoe]/[babel-core]/lib/transformation/file/logger.js:41:11
+  
+  - option-manager.js:226 OptionManager.mergeOptions
+    [Adoe]/[babel-core]/lib/transformation/file/options/option-manager.js:226:20  
+  - option-manager.js:265 
+    [Adoe]/[babel-core]/lib/transformation/file/options/option-manager.js:265:14  
+  - option-manager.js:323 
+    [Adoe]/[babel-core]/lib/transformation/file/options/option-manager.js:323:22  
+  - Array.map
+  
+  - option-manager.js:275 OptionManager.resolvePresets
+    [Adoe]/[babel-core]/lib/transformation/file/options/option-manager.js:275:20  
+  - option-manager.js:264 OptionManager.mergePresets
+    [Adoe]/[babel-core]/lib/transformation/file/options/option-manager.js:264:10  
+  - option-manager.js:249 OptionManager.mergeOptions
+    [Adoe]/[babel-core]/lib/transformation/file/options/option-manager.js:249:14  
+  - option-manager.js:368 OptionManager.init
+    [Adoe]/[babel-core]/lib/transformation/file/options/option-manager.js:368:12  
+  - index.js:212 File.initOptions
+    [Adoe]/[babel-core]/lib/transformation/file/index.js:212:65
+  
+  - index.js:135 new File
+    [Adoe]/[babel-core]/lib/transformation/file/index.js:135:24
+  
+  - pipeline.js:46 Pipeline.transform
+    [Adoe]/[babel-core]/lib/transformation/pipeline.js:46:16
+  
+  - index.js:48 transpile
+    [Adoe]/[babel-loader]/lib/index.js:48:20
+  
+  
+  - ReferenceError: [BABEL] C:\Users\alex\Desktop\alexadoe\Adoe\node_modules\lod    ash\lodash.js: Unknown option: C:\Users\alex\Desktop\alexadoe\Adoe\node_modu    les\react\react.js.Children. Check out http://babeljs.io/docs/usage/options/     for more information about options.
+  
+  - A common cause of this error is the presence of a configuration options obje    ct without the corresponding preset name. Example:
+  
+  - Invalid:
+  
+  - `{ presets: [{option: value}] }`
+  
+  - Valid:
+  
+  - `{ presets: [['presetName', {option: value}]] }`
+  
+  - For more detailed information on preset configuration, please see http://bab    eljs.io/docs/plugins/#pluginpresets-options. (While processing preset: "C:\\    Users\\alex\\Desktop\\alexadoe\\Adoe\\node_modules\\react\\react.js")
+  
+  - compiler.js:76 
+    [Adoe]/[html-webpack-plugin]/lib/compiler.js:76:16
+  
+  - Compiler.js:296 Compiler.<anonymous>
+    [Adoe]/[webpack]/lib/Compiler.js:296:10
+  
+  - Compiler.js:499 
+    [Adoe]/[webpack]/lib/Compiler.js:499:13
+  
+  - Tapable.js:138 next
+    [Adoe]/[tapable]/lib/Tapable.js:138:11
+  
+  - CachePlugin.js:62 Compiler.<anonymous>
+    [Adoe]/[webpack]/lib/CachePlugin.js:62:5
+  
+  - Tapable.js:142 Compiler.applyPluginsAsyncSeries
+    [Adoe]/[tapable]/lib/Tapable.js:142:13
+  
+  - Compiler.js:496 
+    [Adoe]/[webpack]/lib/Compiler.js:496:10
+  
+  - Tapable.js:131 Compilation.applyPluginsAsyncSeries
+    [Adoe]/[tapable]/lib/Tapable.js:131:46
+  
+  - Compilation.js:649 self.applyPluginsAsync.err
+    [Adoe]/[webpack]/lib/Compilation.js:649:19
+  
+  - Tapable.js:131 Compilation.applyPluginsAsyncSeries
+    [Adoe]/[tapable]/lib/Tapable.js:131:46
+  
+  - Compilation.js:640 self.applyPluginsAsync.err
+    [Adoe]/[webpack]/lib/Compilation.js:640:11
+  
+  - Tapable.js:131 Compilation.applyPluginsAsyncSeries
+    [Adoe]/[tapable]/lib/Tapable.js:131:46
+  
+  - Compilation.js:635 self.applyPluginsAsync.err
+    [Adoe]/[webpack]/lib/Compilation.js:635:10
+  
+  - Tapable.js:131 Compilation.applyPluginsAsyncSeries
+    [Adoe]/[tapable]/lib/Tapable.js:131:46
+  
+  - Compilation.js:631 sealPart2
+    [Adoe]/[webpack]/lib/Compilation.js:631:9
+  
+  - Tapable.js:131 Compilation.applyPluginsAsyncSeries
+    [Adoe]/[tapable]/lib/Tapable.js:131:46
+  
+  - Compilation.js:579 Compilation.seal
+    [Adoe]/[webpack]/lib/Compilation.js:579:8
+  
+  - Compiler.js:493 
+    [Adoe]/[webpack]/lib/Compiler.js:493:16
+  
+  - Tapable.js:225 
+    [Adoe]/[tapable]/lib/Tapable.js:225:11
+  
+  - Compilation.js:481 _addModuleChain
+    [Adoe]/[webpack]/lib/Compilation.js:481:11
+  
+  - Compilation.js:452 processModuleDependencies.err
+    [Adoe]/[webpack]/lib/Compilation.js:452:13
+  
+  - next_tick.js:67 _combinedTickCallback
+    internal/process/next_tick.js:67:7
+  
+  - next_tick.js:98 process._tickCallback
+    internal/process/next_tick.js:98:9
+  
+</pre><script type="text/javascript" src="main.bundle.js"></script>

@@ -1,32 +1,45 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Link from 'react-router'
-import FileInput from 'react-file-input';
 
 
 
-export default class DescriptionModal extends React.Component {
+ export default class DescriptionModal extends React.Component  {
   constructor(props) {
     super(props)
     this.state={
       editDescription:this.props.info,
-      newName:null
+      newValue:this.props.name
     }
   }
 
   handleChange(e) {
     this.setState({
-      newName:e.target.value
+      newValue:e.target.value
     })
   }
 
   ok() {
     this.props.closeModal();
-    this.props.changeName.bind(null,this.state.newName)();
+    if(this.props.type==='name') {
+    this.props.changeName.bind(null,this.state.newValue)()
+  }
+    if(this.props.type==='email') {
+  this.props.changeEmail.bind(null,this.state.newValue)()
+    }
+    if(this.props.type==='info') {
+    this.props.changeInfo.bind(null,this.state.newValue)()
+    }
   }
 
 
   render() {
+    const buttonStyle= {
+      backgroundColor:'#555ABF',
+      color:'white',
+      height:'50',
+      width:'150',
+      fontSize:'15',
+      borderRadius: '10'
+    }
+
     // Render nothing if the "show" prop is false
     if(this.props.show) {
       return null;
@@ -52,23 +65,23 @@ export default class DescriptionModal extends React.Component {
       maxWidth: 500,
       minHeight: 300,
       marginTop:'120',
-      marginLeft:'400',
+      marginLeft:'450',
       padding: 30,
       display:'flex',
       flexDirection:'column'
     };
 
-
     return (
       <div className="backdrop" style={backdropStyle}>
         <div className="modal" style={modalStyle}>
-        <div style={{flex:1,display:'flex',justifyContent:'flex-end'}} className="close">
-          <button onClick={this.ok.bind(this)} style={{height:'20'}}>
-            Ok
-          </button>
-        </div>
+
           <div id="description" style={{flex:5,display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <textarea defaultValue={this.props.name} onChange={this.handleChange.bind(this)} style={{height:'250',width:'250'}}></textarea>
+            <input defaultValue={this.props.modalContent} onChange={this.handleChange.bind(this)} style={{height:'40',width:'350'}}></input>
+          </div>
+          <div style={{flex:1,display:'flex',justifyContent:'center'}} className="close">
+            <button style={buttonStyle} onClick={this.ok.bind(this)}>
+              Ok
+            </button>
           </div>
         </div>
       </div>
