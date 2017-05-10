@@ -12,8 +12,7 @@ What Adoe Offers:
  * Easy tax receipts exported on your desired taxing software or simple pdf
  * Fundraiser hosting, bringing your donors to you in a single click 
 
-## Important Links
-- https://trello.com/b/dmZVAxTM/adoe
+
 
 # API Reference 
 
